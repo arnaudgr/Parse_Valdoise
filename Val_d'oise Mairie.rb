@@ -1,7 +1,10 @@
 require 'rubygems'
 require 'nokogiri'
-require 'open-uri'
+require'open-uri'
 require 'pry'
+
+
+
 
 
 
@@ -21,8 +24,3 @@ puts link['href']
 end
 end
  get_all_the_urls_of_val_doise_townhalls
-
- 	
-   
-   
-   
