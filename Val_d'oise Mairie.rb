@@ -3,18 +3,17 @@ require 'nokogiri'
 require'open-uri'
 require 'pry'
 
-PAGE_URL = "http://annuaire-des-mairies.com/val-d-oise.html"
+require 'nokogiri'
+require 'open-uri'
 
-def first_page
-page = Nokogiri::HTML(open(PAGE_URL))
-news_links = page.css("a").select{|link| link['class'] == "lientxt"}
-news_links.each{|link| puts link['href'] }
-end
-print first_page
-
-#binding pry
+doc = Nokogiri::HTML(open("http://annuaire-des-mairies.com/95/vaureal.html"))
 
 
-page = Nokogiri::HTML(open("PAGE_URL/i/browse_letter/?letter=#{l}&page=#{p}"))
-domains = page.xpath("//a[@class='lientxt']")
-print domains.class
+ 	
+   domain_page = doc.xpath ('/html/body/div/main/section[2]/div/table/tbody/tr[4]/td[2]')
+   
+
+css = 'table.table:nth-child(1) > tbody:nth-child(3) > tr:nth-child(4) > td:nth-child(2)'
+
+doc.css(css).each do |email|
+  puts email
